@@ -1,7 +1,7 @@
 document.getElementById("planButton").addEventListener("click", planWindow);
 
 function planWindow()
-{
+{   
     nameInput = document.getElementById("name").value; 
     email = document.getElementById("email").value;
     goal = document.getElementById("goal").value;
@@ -82,10 +82,14 @@ function planWindow()
         }
         myText += ("</table>\n</div>\n");
         myText += ("<button onclick='window.print()'>Print</button><br><br>");
+        myText += ("<button id='download' type='button'>Download</button>\n");
+        myText += ("<script>\ndocument.getElementById('download').addEventListener('click', function(){alert('Could not figure out download :( Try print button then Save As PDF option. ')})\n</script>");
         myText += ("</body>\n</html>");
 
-        flyWindow = window.open('about:blank','myPop', 'width=1000,height=1000,left=200,top=200');
+        flyWindow = window.open('about:blank', popup=true, 'width=1000,height=1000,left=200,top=200');
         flyWindow.document.write(myText);
+
+
     }
     else
     {
